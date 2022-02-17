@@ -36,7 +36,9 @@ class LinkedList implements ILinkedList {
   public prepend(value: any) {
     const newListNode = new ListNode(value, this.head);
     this.head = newListNode;
-    if (!this.tail) {this.tail = newListNode}
+    if (!this.tail) {
+      this.tail = newListNode;
+    }
     return this;
   }
   //---------------------------------------------------------------------
@@ -88,7 +90,8 @@ class LinkedList implements ILinkedList {
     let currentListNode: ListNode | null = this.head;
 
     while (currentListNode) {
-      if (value !== undefined && currentListNode.value === value) return currentListNode;
+      if (value !== undefined && currentListNode.value === value)
+        return currentListNode;
       currentListNode = currentListNode.next;
     }
 
@@ -117,7 +120,7 @@ class LinkedList implements ILinkedList {
 
     return delTail;
   }
-
+  //---------------------------------------------------------------------
   public deleteHead() {
     if (!this.head) {
       return null;
@@ -133,7 +136,7 @@ class LinkedList implements ILinkedList {
 
     return delHead;
   }
-
+  //---------------------------------------------------------------------
   public fromArray(arr: any[]) {
     for (let el of arr) {
       this.append(el);
@@ -153,24 +156,25 @@ class LinkedList implements ILinkedList {
 
     return arr;
   }
-
+  //---------------------------------------------------------------------
   public toString(callback?: (value: any) => string) {
     return this.toArray()
-      .map((node) => node.toString(callback)).toString();
+      .map((node) => node.toString(callback))
+      .toString();
   }
-
+  //---------------------------------------------------------------------
   public reverse() {
     let arr = this.toArray().reverse();
     return this.fromArray(arr);
   }
 }
-
+//---------------------------------------------------------------------
 let list = new LinkedList();
 //console.log(list);
 console.log(list.append(123));
-console.log(list.prepend('124214'));
-console.log(list.append('ewrert'));
-console.log(list.append('fghbng'));
+console.log(list.prepend("124214"));
+console.log(list.append("ewrert"));
+console.log(list.append("fghbng"));
 //console.log(list.delete('fghbng'));
 //console.log(list.find('ewrert'));
 console.log(list.toArray());

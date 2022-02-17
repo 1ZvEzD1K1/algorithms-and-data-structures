@@ -95,6 +95,7 @@ class LinkedList {
         this.tail = currentNode;
         return delTail;
     }
+    //---------------------------------------------------------------------
     deleteHead() {
         if (!this.head) {
             return null;
@@ -109,6 +110,7 @@ class LinkedList {
         }
         return delHead;
     }
+    //---------------------------------------------------------------------
     fromArray(arr) {
         for (let el of arr) {
             this.append(el);
@@ -124,33 +126,25 @@ class LinkedList {
         }
         return arr;
     }
+    //---------------------------------------------------------------------
     toString(callback) {
         return this.toArray()
-            .map((node) => node.toString(callback)).toString();
+            .map((node) => node.toString(callback))
+            .toString();
     }
+    //---------------------------------------------------------------------
     reverse() {
         let arr = this.toArray().reverse();
         return this.fromArray(arr);
-        // let curListNode = this.head;
-        // let prevListNode = null;
-        // let nextListNode = null;
-        // while (curListNode) {
-        //   nextListNode = curListNode.next;
-        //   curListNode.next = prevListNode;
-        //   prevListNode = curListNode;
-        //   curListNode = nextListNode;
-        // }
-        // this.tail = this.head;
-        // this.head = prevListNode;
-        // return this;
     }
 }
+//---------------------------------------------------------------------
 let list = new LinkedList();
 //console.log(list);
 console.log(list.append(123));
-console.log(list.prepend('124214'));
-console.log(list.append('ewrert'));
-console.log(list.append('fghbng'));
+console.log(list.prepend("124214"));
+console.log(list.append("ewrert"));
+console.log(list.append("fghbng"));
 //console.log(list.delete('fghbng'));
 //console.log(list.find('ewrert'));
 console.log(list.toArray());

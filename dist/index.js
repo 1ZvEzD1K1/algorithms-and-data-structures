@@ -134,19 +134,40 @@ class LinkedList {
     }
     //---------------------------------------------------------------------
     reverse() {
-        let arr = this.toArray().reverse();
-        return this.fromArray(arr);
+        let currNode = this.head;
+        let prevNode = null;
+        let nextNode = null;
+        while (currNode) {
+            nextNode = currNode.next;
+            currNode.next = prevNode;
+            prevNode = currNode;
+            currNode = nextNode;
+        }
+        this.tail = this.head;
+        this.head = prevNode;
+        return this;
     }
 }
 //---------------------------------------------------------------------
 let list = new LinkedList();
 //console.log(list);
-console.log(list.append(123));
-console.log(list.prepend("124214"));
-console.log(list.append("ewrert"));
-console.log(list.append("fghbng"));
+list.append(123);
+list.prepend("124214");
+list.append("ewrert");
+list.append("fghbng");
+list.append("fghbng");
+list.append("fghbng");
+list.append("fghbng");
+list.append("fghbng");
+list.prepend("124214");
+list.prepend("124214");
+list.prepend("124214");
+list.fromArray([123, '12435', { name: "Vasia" }]);
+list.prepend("werwet");
+console.log(list);
+console.log(list.reverse());
 //console.log(list.delete('fghbng'));
 //console.log(list.find('ewrert'));
-console.log(list.toArray());
+//console.log(list.toArray());
 //console.log(list.toString());
 //console.log(list.reverse());
